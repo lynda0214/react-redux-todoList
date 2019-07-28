@@ -1,5 +1,26 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to use:
+
+After clone or download, 
+
+### `npm install`
+
+install the packages defined in package.json
+
+### `mongod --config /usr/local/etc/mongod.conf`
+
+start MongoDB server
+
+### `nodemon server/server`
+
+start node.js server
+
+### `npm start`
+
+Runs the app in the development mode
+
+
 ## Available Scripts
 
 In the project directory, you can run:
