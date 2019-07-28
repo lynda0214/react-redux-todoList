@@ -7,12 +7,13 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.CREATE: {
+            console.log("reducer: create: " + action.payload._id);
             const newTodo = {
-                id: action.payload._id,
+                _id: action.payload._id,
                 title: action.payload.title,
                 date: action.payload.date
             }
-            console.log('CREATE: ' + newTodo);
+            console.log(newTodo);
             return {
                 todos: [...state.todos, newTodo]
             }

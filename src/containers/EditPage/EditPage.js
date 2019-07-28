@@ -49,9 +49,10 @@ class EditPage extends Component {
 
     render () {
 
-        this.oldTodo = this.props.todos.filter((todo)=>todo._id === this.id);
-        console.log("in render: " + this.id);
-        console.log(this.oldTodo);
+        [this.oldTodo] = this.props.todos.filter((todo)=>todo._id === this.id);
+        // console.log("in render: " + this.id);
+        // console.log(this.oldTodo);
+        // console.log("OldTitle: " + this.oldTodo.title);
 
         return (
             <div className='home'>

@@ -17,7 +17,7 @@ export const createEvent = ({ title, date }) => {
 };
 
 export const createEventSuccess =  (data) => {
-    console.log('create success with: ' + data._id);
+    console.log('create success with: ' + data._id);    
   return {
     type: CREATE,
     payload: {
@@ -49,22 +49,24 @@ export const deleteEvent = id => {
   };
 };
 
-export const updateEventSuccess = data => {
+export const updateEventSuccess = (id, title, date) => {
     return {
         type: EDIT, 
         payload: {
-            id: data._id,
-            title: data.title, 
-            date: data.date
+            id: id,
+            title: title, 
+            date: date
         }
     }
 }
 
 export const updateEvent = (id, title, date) => {
+    console.log("update event: " + id);
     return (dispatch) => {
         return axios.put(`${apiUrl}/update/${id}`, {title, date})
         .then(response => {
-            dispatch(updateEventSuccess(response.data))
+            console.log('response data', response.data);
+            dispatch(updateEventSuccess(response.data, title, date))
         })
         .catch(error => {
             throw(error);
