@@ -11,7 +11,6 @@ const todoItem = (props) => {
 
     let editLink = '/edit/';
     editLink = editLink + props.index;
-    console.log('TodoItem edit link: ' + editLink);
 
     const momentObj = moment(props.date, moment.ISO_8601);
     const dateDisplay = momentObj.format('D MMM YYYY');

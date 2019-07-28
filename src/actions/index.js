@@ -4,7 +4,6 @@ import axios from 'axios';
 const apiUrl = 'http://localhost:4000/events';
 
 export const createEvent = ({ title, date }) => {
-    console.log('create event');
   return (dispatch) => {
     return axios.post(`${apiUrl}/create`, {title, date})
       .then(response => {
@@ -17,7 +16,7 @@ export const createEvent = ({ title, date }) => {
 };
 
 export const createEventSuccess =  (data) => {
-    console.log('create success with: ' + data._id);    
+  console.log('[CREATE SUCESS]: ' + data._id);     
   return {
     type: CREATE,
     payload: {
@@ -29,6 +28,7 @@ export const createEventSuccess =  (data) => {
 };
 
 export const deleteEventSuccess = id => {
+  console.log('[DELETE SUCCESS]: ' + id);
   return {
     type: DELETE,
     payload: {
@@ -50,28 +50,27 @@ export const deleteEvent = id => {
 };
 
 export const updateEventSuccess = (id, title, date) => {
-    return {
-        type: EDIT, 
-        payload: {
-            id: id,
-            title: title, 
-            date: date
-        }
-    }
+  console.log('[UPDATE SUCCESS]: ' + id); 
+  return {
+      type: EDIT, 
+      payload: {
+          id: id,
+          title: title, 
+          date: date
+      }
+  }
 }
 
 export const updateEvent = (id, title, date) => {
-    console.log("update event: " + id);
-    return (dispatch) => {
-        return axios.put(`${apiUrl}/update/${id}`, {title, date})
-        .then(response => {
-            console.log('response data', response.data);
-            dispatch(updateEventSuccess(response.data, title, date))
-        })
-        .catch(error => {
-            throw(error);
-        });
-    }
+  return (dispatch) => {
+      return axios.put(`${apiUrl}/update/${id}`, {title, date})
+      .then(response => {
+          dispatch(updateEventSuccess(response.data, title, date))
+      })
+      .catch(error => {
+          throw(error);
+      });
+  }
 }
 
 

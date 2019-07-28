@@ -11,12 +11,10 @@ import "react-datepicker/dist/react-datepicker.css";
 class EditPage extends Component {
 
     id = this.props.match.params.id; 
-    oldTodo; 
-    oldTitle; 
-    oldDate;
+    oldTodo = this.props.todos.filter((todo)=>todo._id === this.id);
 
     state = {
-        startDate: new Date()
+        startDate: new Date(this.oldTodo[0].date)
     }
 
     handleChange = (date) => {
@@ -33,7 +31,6 @@ class EditPage extends Component {
             const momentObj = moment(this.state.startDate);
             const dateString = momentObj.format();
 
-            console.log("in submission: " + this.id);
             this.props.onEditTodo(
                 this.id, 
                 this.refs.newTitle.value, 
@@ -49,10 +46,7 @@ class EditPage extends Component {
 
     render () {
 
-        [this.oldTodo] = this.props.todos.filter((todo)=>todo._id === this.id);
-        // console.log("in render: " + this.id);
-        // console.log(this.oldTodo);
-        // console.log("OldTitle: " + this.oldTodo.title);
+        // [this.oldTodo] = this.props.todos.filter((todo)=>todo._id === this.id);
 
         return (
             <div className='home'>
@@ -61,7 +55,7 @@ class EditPage extends Component {
                     type='text'
                     className='textInput' 
                     ref='newTitle'  
-                    defaultValue={this.oldTodo.title}/>
+                    defaultValue={this.oldTodo[0].title}/>
                 
                 <DatePicker
                     className='textInput'

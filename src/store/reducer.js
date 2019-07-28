@@ -19,11 +19,10 @@ const reducer = (state = initialState, action) => {
             }
         }
         case actionTypes.EDIT: {
-            console.log('EDIT ' + action.payload.id);
-
             const updatedArray = state.todos.map((todo)=>{
                 if (todo._id === action.payload.id) {
                     return { 
+                        _id: action.payload.id, 
                         title: action.payload.title,
                         date: action.payload.date
                     }
