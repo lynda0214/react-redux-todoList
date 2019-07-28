@@ -1,0 +1,27 @@
+.textInput {
+    width: 300px;
+    border: none;
+    border:solid 1px #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.1rem;
+    margin: 5px;
+}
+
+.saveBtn {
+    width: 100px;
+    height: 42px;
+    background-color: #22DC6D;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 10px; 
+    cursor: pointer;
+}
+
+.saveBtn:hover {
+    background-color: rgb(28, 158, 80);
+}

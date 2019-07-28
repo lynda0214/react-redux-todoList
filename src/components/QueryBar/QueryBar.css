@@ -1,0 +1,25 @@
+.queryBar {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 36px;
+}
+
+.queryBar input {
+    border: none;
+    border:solid 1px #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.1em;
+    flex-grow: 1;
+}
+
+.iconButton {
+    margin: 10px;
+    color: lightgray;
+}
+
+.iconButton:hover {
+    cursor: pointer;
+    color: #22DC6D;
+}

@@ -1,0 +1,9 @@
+.createButton {
+    margin: 10px 20px 10px 5px;
+    color: lightgray;
+}
+
+.createButton:hover {
+    cursor: pointer;
+    color: #22DC6D;
+}
